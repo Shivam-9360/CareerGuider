@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Career Options</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		*{font-family: "Bahnschrift";}
+		
+		.img_content
+		{
+			max-width:100%;
+			position: relative;
+			font-size: 1vw;
+		}
+		
+		.h1
+		{
+			font-family: "Bahnschrift";
+			font-size: 800%;
+			position: absolute; 
+			top: 0.2%; 
+			left: 1%;
+			color: #541f55;
+		}
+		.p1
+		{
+			font-size: 200%;
+			position: absolute; 
+			top: 12%; 
+			left: 1.5%;
+			font-family: "Bahnschrift";
+		}
+		
+		.column {
+			float: left;
+			width: 33.33%;
+			padding: 0 0.625rem;
+			box-sizing: border-box;
+		}
+
+		.row {
+			margin: 0 0px; 
+			box-sizing: border-box;
+			display: none;
+		}
+
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+			box-sizing: border-box;
+		}
+		
+		.card {
+			box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2);
+			padding: 16px;
+			text-align: center;
+			background-color: #f1f1f1;
+			box-sizing: border-box;
+		}
+		
+		@media only screen and (max-width: 600px) {
+		.h1
+		{
+			font-family: "Bahnschrift";
+			font-size: 3rem;
+			position: absolute; 
+			top: 0.2%; 
+			left: 1%;
+			color: #541f55;
+			text-align: center;
+		}
+		.column {
+			width: 100%;
+			display: block;
+			margin-bottom: 1.25rem;
+			box-sizing: border-box;
+		 }
+		.p1
+		{
+			font-size: 1rem;
+			position: absolute; 
+			top: 12%; 
+			left: 1.5%;
+			font-family: "Bahnschrift";
+			color: #ffffff;
+			display: none;
+		}}
+		
+		.p2
+		{
+			font-family: "Bahnschrift";
+			font-size: 2rem;
+			text-align: center;
+		}
+		
+		.button {
+			background-color: #A9A9A9;
+			position: relative;
+			font-family: "Bahnschrift";
+			border: 0.5rem;
+			font-size: 1.5rem;
+			padding: 1rem;
+			width: 15rem;
+			text-align: center;
+			-webkit-transition-duration: 0.4s;
+			transition-duration: 0.4s;
+			overflow: hidden;
+			cursor: pointer;
+			border-radius: 10rem;
+			margin: 1rem;
+		}
+		
+		.submit_button {
+			background-color: #3890a6;
+			position: relative;
+			font-family: "Bahnschrift";
+			border: 1rem;
+			font-size: 2rem;
+			padding: 0.75rem;
+			width: 90%;
+			text-align: center;
+			-webkit-transition-duration: 0.4s;
+			transition-duration: 0.4s;
+			overflow: hidden;
+			cursor: pointer;
+			border-radius: 0%;
+			margin: 1rem;
+		}
+		
+		.submit_button:hover {
+			background-color: #d2eceb;
+		}
+		
+		.div_align{
+			font-size: 2vw;
+			text-align: center;
+		}
+		
+		.h2{
+			font-family: "Bahnschrift";
+			font-size: 1.5rem;
+		}
+		
+		.p3{
+			font-size: 1rem;
+			font-family: "Bahnschrift";
+		}
+	</style>
+</head>
+
+<body style = "margin: 0">
+<!-- Page content -->
+		<!-- Images -->
+	<div class = "img_content">
+		<picture>
+			<source srcset="small_bg.jpg" media="(max-width: 600px)">
+			<source srcset="bg.jpg">
+			<img src = "bg.jpg" alt = "Career Paths" style = "width: 100%;height: 100%;">
+		</picture>
+		<h class = "h1">Career Paths</h>
+		<p class = "p1">Discover yourself and your ideal career!</p>
+		<p class = "p2">Select Your Skill Set</p>
+		<a href = "#submit">
+		<center><img src = "down_arrow.jpg" alt = "Down arrow" style = "width: 2%;height: 2%;"></center>
+		</a>
+	</div>
+	
+	
+	
+	<script>
+		function setColor(btn){
+			var property = document.getElementById(btn);
+			var compareHex = (hex) => {
+			var hexString = document.createElement('div')
+			hexString.style.backgroundColor = `${hex}`
+			return hexString.style.backgroundColor
+			}
+			if(property.style.backgroundColor === compareHex("#04AA6D")){
+				property.style.backgroundColor = "#A9A9A9";
+			}else{
+			property.style.backgroundColor = "#04AA6D";
+			}
+		}
+	</script>
+	
+	<div id = "refernce" class = "div_align"></div>
+	
+	<script>
+		const tags = [" Visual arts", " Advertising", "Technical drawing", "Aesthetics", "Art with clothing", "Finance", "Pure Mathematics",
+					"Classical physics", "Science of matter", "Study of organisms", "Electrical devices", "Circuit building", "Study of chemicals", "Data structures",
+					"Logical reasoning", "Social media skills", "Scientific research", "Attention to detail", "Creativity", "Soft skills"];
+		var tagCount = 20;
+		for(var i=0;i<tagCount;i++)
+		{
+			var btn = document.createElement("BUTTON");
+			btn.innerHTML = tags[i];
+			btn.setAttribute('id', i.toString());
+			btn.setAttribute('class', "button");  
+			btn.setAttribute('onCLick', "setColor("+i.toString()+")");
+			document.getElementById("refernce").appendChild(btn);
+		}
+	</script>
+	
+
+	
+	<script>
+	var user_choice = [];
+	var skillCount = 20;
+	
+	class Profession {
+		constructor(name, blurb, maps){
+		this.name = name;
+		this.blurb = blurb;
+		this.maps = maps;
+		this.count = 0;
+		}
+	}
+	
+	let fashion_designer = new Profession("Fashion Design", 
+	"Fashion designers help create the billions of dresses, suits, shoes, and other clothing and accessories purchased every year by consumers. Designers study fashion trends, sketch designs of clothing and accessories, select colors and fabrics, and oversee the final production of their designs.",
+	[0, 18, 17, 4]);
+	let interior_designer = new Profession("Interior Designer",
+	"Interior and Spatial Designer: These designers are responsible for renovating and designing the internal spaces. These spaces include furnishings, colour and lighting schemes, structural alteration, fixtures and fittings.",
+	[3, 2, 15, 14]);
+	let architect = new Profession("Architect",
+	"Architects work on scales starting from a small room in a house to an entire city. They design, develop, present, and supervise all sorts of projects.",
+	[2, 1, 17, 19]);
+	let commercial_artist = new Profession("Commercial Artist",
+	"Commercial art includes graphic design, advertising, branding, logos and book illustrations. The job of commercial artists includes meeting with clients to determine what type of product they are looking at, speaking with the clients, reviewing proposed plans and offering suggestions to their clients.",
+	[4, 15, 1, 19]);
+	let fine_artist = new Profession("Fine Artist",
+	"The job of fine and craft artists include developing creative ideas or new methods for making art, using techniques, such as weaving, knitting, glass blowing, painting, drawing, or sculpting and creating sketches or models to guide their work.",
+	[0, 3, 19, 14]);
+	let commerce = new Profession("Commerce",
+	"Among the Commerce courses, students can consider choosing specialisations such as Accounting and Finance, Banking and Finance, Accounting and Taxation, Actuarial Science, Business Administration, Applied Economics, E-Commerce, Financial Accounting, Banking and Insurance, Human Resources, Entrepreneurship, Accounting ...",
+	[5, 1, 14, 19]);
+	let bsc_maths = new Profession("Bachelor of Mathematics",
+	"BSc Mathematics is a 3 year undergraduate academic degree course offered to those graduates who have successfully completed a program in mathematics.",
+	[6, 14, 13, 16]);
+	let bsc_phy = new Profession("Bachelor of Physics",
+	"Researcher: Candidates who hold a B.Sc physics degree can apply for researcher or scientist posts at top organisations in India like DRDO, BARC, ISRO, NTPC, BHEL etc. Technician: Various private organisations hire candidates with B.Sc Physics degree for technical support/ Technician jobs.",
+	[7, 16, 10, 11]);
+	let bsc_chem = new Profession("Bachelor of Chemistry",
+	"The subject of chemistry can offer a wide range of employment opportunities to candidates in both private as well as government sectors. BSc Chemistry candidates can also pursue their career in the field of teaching and technical writer.",
+	[8, 16, 17, 12]);
+	let bsc_bio = new Profession("Bachelor of Biology",
+	"There are job opportunities for a B. Sc. Biology graduate to work as a botanist in both governments (wildlife sanctuaries and national parks) and private institutions (botanical gardens and research labs). Experts are required for development in scientific research.",
+	[9, 16, 14]);
+	let electrical_engg = new Profession("Electrical Engineering",
+	"Electrical engineers design, develop, test and manage the manufacturing of electrical equipment, from electric motors and navigation systems to power generation equipment and the electrical components of vehicles and personal devices. Design new ways to use electrical power to develop or improve products.",
+	[10, 11, 6, 17]);
+	let electronic_engg = new Profession("Electronic Engineering",
+	"In the field of electronic engineering, engineers design and test circuits that use the electromagnetic properties of electrical components such as resistors, capacitors, inductors, diodes and transistors to achieve a particular functionality.",
+	[11, 17, 13, 14]);
+	let comp_sci = new Profession("Computer Science",
+	"On the job, computer scientists use technology to solve problems and prepare for the future. They also write and program software to create applications. Their primary focus, however, is to validate and develop models for interaction between people and computers or software and devices.",
+	[13, 6, 14, 5]);
+	let chem_engg = new Profession("Chemical Engineering",
+	"Chemical engineers develop and design chemical manufacturing processes. They design processes and equipment for large-scale manufacturing, plan and test production methods and byproducts treatment, and direct facility operations.",
+	[12, 16, 19]);
+	
+	const careers = [fashion_designer, interior_designer, architect, commercial_artist, fine_artist, commerce, bsc_maths, bsc_phy, bsc_chem, bsc_bio, electrical_engg, electronic_engg, comp_sci, chem_engg];
+	function sum(total, num) {
+		return total + num;
+	}
+	
+		function submitter()
+		{		
+			var compareHex = (hex) => {
+			var hexString = document.createElement('div')
+			hexString.style.backgroundColor = `${hex}`
+			return hexString.style.backgroundColor
+			}
+			
+			for(var i=0;i<skillCount;i++)
+			{
+				user_choice.push(document.getElementById(i.toString()).style.backgroundColor === compareHex("#04AA6D"));
+			}
+			
+			if(user_choice.reduce(sum) < 4){
+				alert("Please select at least four options.");
+				return
+			}
+			
+			for (var i = 0;i < 14;i++){
+				careers[i].count = 0;
+			}
+			
+			for (var i = 0;i < 14;i++){
+				var career = careers[i];
+				for (var j = 0;j < career.maps.length;j++){
+					if (user_choice[career.maps[j]]){
+						career.count = career.count + 1;
+					}
+				}
+			}
+			
+			careers.sort(function(a,b) {return (a.count < b.count) ? 1 : ((b.count < a.count) ? -1 : 0);} );
+			console.log(careers);
+			document.getElementById("row").style.display = "inline";
+			document.getElementById("card1").innerHTML = "1.\n" + careers[0].name;		
+			document.getElementById("para1").innerHTML = careers[0].blurb;	
+			document.getElementById("card2").innerHTML = "2.\n" + careers[1].name;		
+			document.getElementById("para2").innerHTML = careers[1].blurb;	
+			document.getElementById("card3").innerHTML = "3.\n" + careers[2].name;		
+			document.getElementById("para3").innerHTML = careers[2].blurb;	
+			
+			window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+		}
+	</script>
+	
+	<center><button class = "submit_button" id = "submit" onclick = "submitter()">Submit</button></center>
+	
+
+	
+	<div class="row" id="row">
+	  <div class="column">
+		<div class="card">
+		  <h class = "h2" id = "card1"></h>
+		  <p id = "para1" class = "p3"></p>
+		</div>
+	  </div>
+
+	  <div class="column">
+		<div class="card">
+		  <h class = "h2" id = "card2"></h>
+		  <p id = "para2" class = "p3"></p>
+		</div>
+	  </div>
+	  
+	  <div class="column">
+		<div class="card">
+		  <h class = "h2" id = "card3"></h>
+		  <p id = "para3" class = "p3"></p>
+		</div>
+	  </div>
+	  
+	  </div>
+	</div>
+
+	
+  
+</body>
+</html>
